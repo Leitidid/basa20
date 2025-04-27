@@ -1,0 +1,63 @@
+﻿<Window x:Class="basa20.IzdeliyaForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:basa20"
+        mc:Ignorable="d"
+        Title="IzdeliyaForm" Height="450" Width="800">
+	<Grid>
+	
+		<TabControl x:Name="ReferenceTabControl" Margin="10">
+			<TabItem Header="Изделия">
+				<DataGrid x:Name="IzdeliyaGrid" AutoGenerateColumns="False" Margin="10">
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="Код изделия" Binding="{Binding КодИзделия}" />
+						<DataGridTextColumn Header="Наименование изделия" Binding="{Binding НаименованиеИзделия}" />
+						<DataGridTextColumn Header="Стоимость сборки" Binding="{Binding СтоимостьСборки}" />
+					</DataGrid.Columns>
+				</DataGrid>
+			</TabItem>
+
+			<TabItem Header="План выпуска">
+				<DataGrid x:Name="PlanVypuskaGrids" AutoGenerateColumns="False" Margin="10">
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="Код плана" Binding="{Binding КодПлана}" />
+						<DataGridTextColumn Header="Код изделия" Binding="{Binding КодИзделия}" />
+						<DataGridTextColumn Header="Количество изделий" Binding="{Binding КоличествоИзделий}" />
+						<DataGridTextColumn Header="Код цеха" Binding="{Binding КодЦеха}" />
+					</DataGrid.Columns>
+				</DataGrid>
+			</TabItem>
+			
+			<TabItem Header="Детали">
+				<DataGrid x:Name="DetaliGrid" AutoGenerateColumns="False" Margin="10">
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="Код детали" Binding="{Binding КодДетали}" />
+						<DataGridTextColumn Header="Наименование детали" Binding="{Binding НаименованиеДетали}" />
+						<DataGridTextColumn Header="Цена" Binding="{Binding Цена}" />
+					</DataGrid.Columns>
+				</DataGrid>
+			</TabItem>
+
+
+
+			<TabItem Header="Состав изделия">
+				<DataGrid x:Name="SostavIzdeliyaGrid" AutoGenerateColumns="False" Margin="10">
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="Код состава" Binding="{Binding КодСостава}" />
+						<DataGridTextColumn Header="Код изделия" Binding="{Binding КодИзделия}" />
+						<DataGridTextColumn Header="Код детали" Binding="{Binding КодДетали}" />
+						<DataGridTextColumn Header="Количество деталей" Binding="{Binding КоличествоДеталей}" />
+					</DataGrid.Columns>
+				</DataGrid>
+			</TabItem>
+		</TabControl>
+
+		<!-- Кнопки для добавления и удаления записей -->
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
+			<Button Content="Добавить" Width="100" Margin="5" Click="AddRecord_Click"/>
+			<Button Content="Удалить" Width="100" Margin="5" Click="DeleteRecord_Click"/>
+		</StackPanel>
+	</Grid>
+</Window>
