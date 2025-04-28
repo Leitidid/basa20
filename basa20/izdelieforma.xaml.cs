@@ -1,5 +1,4 @@
 ﻿using basa20.Models;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,26 +16,28 @@ using System.Windows.Shapes;
 namespace basa20
 {
     /// <summary>
-    /// Логика взаимодействия для IzdeliyaForm.xaml
+    /// Логика взаимодействия для izdelieforma.xaml
     /// </summary>
-    public partial class IzdeliyaForm : Window
+    public partial class izdelieforma : Window
     {
         private ProizvodstvoContext db;
-        public IzdeliyaForm()
+        public izdelieforma()
         {
             InitializeComponent();
             db = new ProizvodstvoContext();
             LoadData();
         }
 
+
         private void LoadData()
         {
             // Загрузка данных для каждой вкладки
             IzdeliyaGrid.ItemsSource = db.Изделияs.ToList();
             DetaliGrid.ItemsSource = db.Деталиs.ToList();
-            CexaGrid.ItemsSource = db.Цехаs.ToList();
-            PlanVypuskaGrids.ItemsSource = db.ПланВыпускаs.ToList();
+           
+            PlanVypuskaGrid.ItemsSource = db.ПланВыпускаs.ToList();
             SostavIzdeliyaGrid.ItemsSource = db.СоставИзделияs.ToList();
+            CexaGri.ItemsSource = db.Цехаs.ToList();
         }
 
         // Обработчик кнопки "Добавить"

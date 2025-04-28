@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="IzdeliyaForm" Height="450" Width="800">
 	<Grid>
-	
+
 		<TabControl x:Name="ReferenceTabControl" Margin="10">
 			<TabItem Header="Изделия">
 				<DataGrid x:Name="IzdeliyaGrid" AutoGenerateColumns="False" Margin="10">
@@ -20,7 +20,7 @@
 			</TabItem>
 
 			<TabItem Header="План выпуска">
-				<DataGrid x:Name="PlanVypuskaGrids" AutoGenerateColumns="False" Margin="10">
+				<DataGrid x:Name="PlanVypuskaGrid" AutoGenerateColumns="False" Margin="10">
 					<DataGrid.Columns>
 						<DataGridTextColumn Header="Код плана" Binding="{Binding КодПлана}" />
 						<DataGridTextColumn Header="Код изделия" Binding="{Binding КодИзделия}" />
@@ -29,7 +29,16 @@
 					</DataGrid.Columns>
 				</DataGrid>
 			</TabItem>
-			
+			<TabItem Header="Цеха">
+				<DataGrid x:Name="CexaGri" AutoGenerateColumns="False" Margin="10">
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="Код цеха" Binding="{Binding КодЦеха}" />
+						<DataGridTextColumn Header="Наименование цеха" Binding="{Binding НаименованиеЦеха}" />
+						<DataGridTextColumn Header="Начальник" Binding="{Binding Начальник}" />
+					</DataGrid.Columns>
+				</DataGrid>
+			</TabItem>
+
 			<TabItem Header="Детали">
 				<DataGrid x:Name="DetaliGrid" AutoGenerateColumns="False" Margin="10">
 					<DataGrid.Columns>
@@ -39,8 +48,6 @@
 					</DataGrid.Columns>
 				</DataGrid>
 			</TabItem>
-
-
 
 			<TabItem Header="Состав изделия">
 				<DataGrid x:Name="SostavIzdeliyaGrid" AutoGenerateColumns="False" Margin="10">

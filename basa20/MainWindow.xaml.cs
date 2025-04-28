@@ -28,7 +28,7 @@ namespace basa20
         // Открытие окна "Справочник"
         private void OpenReference_Click(object sender, RoutedEventArgs e)
         {
-            var referenceWindow = new IzdeliyaForm();
+            var referenceWindow = new izdelieforma();
             referenceWindow.Show();
         }
 
