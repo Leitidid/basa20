@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:basa20"
         mc:Ignorable="d"
-        Title="Главная форма" Height="450" Width="900">
+        Title="Главная форма" Height="600" Width="800">
     <Grid>
         <!-- Панель для кнопок -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
@@ -14,19 +14,44 @@
         </StackPanel>
 
         <!-- Текстовые поля и кнопки для запросов -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,50,10,10">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,50,0,0" Width="669">
             <!-- Для задания 1 -->
-            <TextBlock Text="Введите наименование изделия:" Margin="5" VerticalAlignment="Center"/>
-            <TextBox x:Name="IzdelieInput" Width="150" Margin="5"/>
-            <Button Content="Подсчет деталей в изделии" Width="200" Margin="5" Click="Task1_Click"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Введите наименование изделия:" Margin="5" VerticalAlignment="Center"/>
+                <TextBox x:Name="IzdelieInput" Width="132" Margin="5"/>
+                <Button Content="Подсчет деталей в изделии" Width="200" Margin="5" Click="Task1_Click"/>
+            </StackPanel>
 
             <!-- Для задания 2 -->
-            <TextBlock Text="Введите наименование изделия:" Margin="5" VerticalAlignment="Center"/>
-            <TextBox x:Name="IzdelieCostInput" Width="150" Margin="5"/>
-            <Button Content="Подсчет стоимости изделия" Width="200" Margin="5" Click="Task2_Click"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Введите наименование изделия:" Margin="5" VerticalAlignment="Center"/>
+                <TextBox x:Name="IzdelieCostInput" Width="109" Margin="5"/>
+                <Button Content="Подсчет стоимости изделия" Width="200" Margin="5" Click="Task2_Click"/>
+            </StackPanel>
+
+            <!-- Запрос 1: Уменьшение стоимости сборки в 1,2 раза -->
+            <Button Content="Уменьшить стоимость сборки" Width="200" Margin="5" Click="ReduceCost_Click"/>
+
+            <!-- Запрос 2: Добавление записи в таблицу Цеха -->
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Наименование цеха:" Margin="5" VerticalAlignment="Center"/>
+                <TextBox x:Name="CexaNameInput" Width="150" Margin="5"/>
+                <TextBlock Text="Начальник:" Margin="5" VerticalAlignment="Center"/>
+                <TextBox x:Name="CexaNachalnikInput" Width="150" Margin="5"/>
+                <Button Content="Добавить цех" Width="100" Margin="5" Click="AddCexa_Click"/>
+            </StackPanel>
+
+            <!-- Запрос 3: Средняя стоимость изделий по цехам -->
+            <Button Content="Средняя стоимость изделий по цехам" Width="250" Margin="5" Click="AverageCostByCexa_Click"/>
+
+            <!-- Запрос 4: План выпуска изделий -->
+            <Button Content="План выпуска изделий" Width="200" Margin="5" Click="PlanVypuska_Click"/>
+
+            <!-- Запрос 5: Изделия ниже средней стоимости -->
+            <Button Content="Изделия ниже средней стоимости" Width="250" Margin="5" Click="BelowAverageCost_Click"/>
         </StackPanel>
 
-        <!-- Основной DataGrid -->
-        <DataGrid x:Name="MainDataGrid" AutoGenerateColumns="False" Margin="10,100,10,10"/>
+        <!-- Основной DataGrid для вывода результатов -->
+        <DataGrid x:Name="MainDataGrid" AutoGenerateColumns="True" Margin="10,295,10,10"/>
     </Grid>
 </Window>
